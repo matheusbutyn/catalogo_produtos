@@ -1,0 +1,218 @@
+body {
+    background-color: white;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 25vh;
+    width: 100%;
+}
+
+.titulo_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(180, 0, 0);
+    border-radius: 3vh;
+    height: 100%;
+    width: 73%;
+    margin: 0.5%;
+}
+
+.titulo_head h1 {
+    align-self: center;
+    color: white;
+    font-size: 5vw;
+    font-family: 'Courier New';
+}
+
+.img_head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 102, 102);
+    border-radius: 3vh;
+    border-color: black;
+    height: 100%;
+    width: 23%;
+    margin: 0.5%;
+}
+
+.img_head img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+#cadastro{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 147, 75);
+    border-radius: 3vh;
+    height: 100vh;
+    width: 98%;
+    margin: 1%;
+    gap: 5%;
+}
+.barra_menu{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(165, 54, 54);
+    border-radius: 3vh;
+    height: 10vh;
+    width: 98%;
+    margin: 1%;
+    gap: 1%;
+}
+.barra_menu a{
+    text-align: center;
+    align-content: center;
+    border: 0.5vh solid black;
+    border-radius: 30vw;
+    width: 60vh;
+    height: 80%;
+    font-size: 2vw;
+    font-family: 'Courier';
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+.barra_menu a:hover {
+  background-color: #ff8800;
+  transform: scale(1.05);
+}
+.inserir{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 95vw;
+    height: 15%;
+    background-color: rgb(255, 38, 0);
+    color: white;
+}
+.inserir label{
+    font-size: 2vw;
+    width: 10vw;
+    height: 50%;
+    font-family: 'Lucida Sans';
+}
+.inserir input{
+    font-size: 2vw;
+    width: 50vw;
+    height: 80%;
+    border: 0.1vh solid black;
+    border-radius: 2vh;
+    text-align: center;
+    font-family: 'Lucida Sans';
+}
+.novo_cad{
+    width: 20vw;
+    height: 10%;
+    border: 0.5vh solid black;
+    background-color: rgb(41, 124, 25);
+}
+.novo_cad:hover {
+  background-color: #0d3800;
+  transform: scale(1.05);
+  p{
+    font-size: 1.3vw;
+  }
+}
+.novo_cad p{
+    color: white;
+    font-size: 1vw;
+}
+#listar{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 147, 75);
+    border-radius: 3vh;
+    height: auto;
+    width: 98%;
+    margin: 1%;
+    gap: 5%;
+}
+#listar h2{
+    font-size: 4vw;
+    font-family: 'Lucida Sans';
+    justify-self: flex-start;
+}
+#excluir{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 147, 75);
+    border-radius: 3vh;
+    height: 100vh;
+    width: 98%;
+    margin: 1%;
+    gap: 5%;
+}
+.botao_del{
+    width: 20vw;
+    height: 10%;
+    border: 0.5vh solid black;
+    background-color: rgb(255, 0, 0);
+}
+.botao_del:hover {
+  background-color: #970000;
+  transform: scale(1.05);
+  p{
+    font-size: 1.3vw;
+  }
+}
+.botao_del p{
+    color: white;
+    font-size: 1vw;
+}
+
+.card_produto{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr);
+    width: 95%;
+    height: 60vh;
+    background-color: rgb(255, 38, 0);
+    color: white;
+    margin: 1%;
+}
+.atr_preco{
+    grid-area: 4/2/5/3;
+}
+
+.sem_prod{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    height: 15vh;
+    background-color: rgb(255, 38, 0);
+    color: white;
+}
+
+.botao_excluir{
+    width: 50%;
+    height: 5vh;
+    grid-area: 5/1/6/3;
+    justify-self: center;
+}

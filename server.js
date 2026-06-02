@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
@@ -7,11 +8,11 @@ app.use(express.json());
 app.use(express.static(__dirname));
 
 const db = mysql.createConnection({
-    host: 'bpdckavpt6atz2yif6px-mysql.services.clever-cloud.com',
-    user: 'uvqxuhnaawa6qfc4',
-    password: 'asEpTQ6lQcGyS6Iz6Q5R',
-    database: 'bpdckavpt6atz2yif6px',
-    port: 3306
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
 });
 
 db.query(`
@@ -24,7 +25,7 @@ db.query(`
     )
 `, (err, result) => {
     if (err) console.error("Erro ao criar tabela:", err);
-    else console.log("Tabela pronta para uso na nuvem!");
+    else console.log("Tabela sincronizada com o banco de dados.");
 });
 
 app.post('/enviar-produto', (req, res) => {
@@ -33,7 +34,7 @@ app.post('/enviar-produto', (req, res) => {
     
     db.query(query, [nome, categoria, descricao, preco], (err, result) => {
         if (err) return res.status(500).send("Erro ao salvar");
-        res.send("Produto salvo com sucesso!");
+        res.send("Produto saved");
     });
 });
 
@@ -48,6 +49,7 @@ app.delete('/produtos/:id', (req, res) => {
     const { id } = req.params;
     db.query("DELETE FROM produtos WHERE id = ?", [id], (err, result) => {
         if (err) return res.status(500).send("Erro ao excluir");
+        if (result.affectedRows === 0) return res.status(404).send("Não encontrado");
         res.send("Excluído com sucesso");
     });
 });

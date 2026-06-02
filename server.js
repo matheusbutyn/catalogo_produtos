@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '../')));
+app.use(express.static(__dirname));
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -26,7 +26,7 @@ db.query(`
     )
 `, (err) => {
     if (err) console.error("Erro ao criar tabela:", err);
-    else console.log("Tabela sincronizada com o banco de dados.");
+    else console.log("Tabela sincronizada.");
 });
 
 app.post('/api/enviar-produto', (req, res) => {

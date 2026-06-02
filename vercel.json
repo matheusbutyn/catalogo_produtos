@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/enviar-produto",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/produtos",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/produtos/:id",
+      "destination": "/server.js"
+    }
+  ]
+}

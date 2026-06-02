@@ -20,7 +20,7 @@ function fazerCadastro(event) {
         preco: document.getElementById('preco').value
     };
 
-    fetch('/enviar-produto', {
+    fetch('/api/enviar-produto', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
@@ -30,7 +30,7 @@ function fazerCadastro(event) {
 }
 
 function listarProdutos() {
-    fetch('/produtos') 
+    fetch('/api/produtos') 
     .then(resposta => resposta.json())
     .then(produtos => {
         const divListar = document.getElementById('listar');
@@ -67,7 +67,7 @@ function listarProdutos() {
 
 function excluirProduto(id) {
     if(confirm("Tem certeza que deseja excluir?")) {
-        fetch(`/produtos/${id}`, { method: 'DELETE' })
+        fetch(`/api/produtos/${id}`, { method: 'DELETE' })
         .then(() => {
             alert("Produto excluído!");
             listarProdutos();

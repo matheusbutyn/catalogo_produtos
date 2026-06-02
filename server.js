@@ -7,10 +7,24 @@ app.use(express.json());
 app.use(express.static(__dirname));
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '13102004',
-    database: 'meu_catalogo'
+    host: 'bpdckavpt6atz2yif6px-mysql.services.clever-cloud.com',
+    user: 'uvqxuhnaawa6qfc4',
+    password: 'asEpTQ6lQcGyS6Iz6Q5R',
+    database: 'bpdckavpt6atz2yif6px',
+    port: 3306
+});
+
+db.query(`
+    CREATE TABLE IF NOT EXISTS produtos (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(255) NOT NULL,
+        categoria VARCHAR(100) NOT NULL,
+        descricao TEXT NOT NULL,
+        preco DECIMAL(10, 2) NOT NULL
+    )
+`, (err, result) => {
+    if (err) console.error("Erro ao criar tabela:", err);
+    else console.log("Tabela pronta para uso na nuvem!");
 });
 
 app.post('/enviar-produto', (req, res) => {

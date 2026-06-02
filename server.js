@@ -54,6 +54,10 @@ app.delete('/produtos/:id', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'home.html'));
+});
+
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
